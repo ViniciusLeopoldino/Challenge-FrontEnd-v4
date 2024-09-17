@@ -1,0 +1,68 @@
+body {
+  background-color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-left: 200px; /*Espaço reservado para o menu lateral*/
+  width: calc(100% - 200px); /*O container ocupa o restante da tela*/
+  min-height: 50%; /* Garante que o container ocupe toda a altura da tela */
+  box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0;
+    width: 100%; /* Ocupa 100% da largura em telas menores */
+    min-height: auto; /* Ajusta a altura automaticamente para telas menores */
+  }
+  .scheduleForm {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    text-align: left;
+  }
+  label {
+    text-align: left;
+  } 
+}
+
+/* Adicional: Estilização dos selects específicos na página de manutenção */
+.scheduleForm select {
+  padding: 10px 30px;
+  background-color: #00a1fc;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.scheduleForm select:focus {
+  padding: 10px 30px;
+  background-color: #00a1fc;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 5px;
+}
+
+ p {
+  margin-top: 0;
+  border-radius: 30px;
+}
+
+h3{
+  margin-top: 20px;
+  text-align: left;
+}

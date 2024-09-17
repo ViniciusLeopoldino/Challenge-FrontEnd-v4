@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-left: 200px; /*Espaço reservado para o menu lateral*/
+  width: calc(100% - 200px); /*O container ocupa o restante da tela*/
+  min-height: 50%; /* Garante que o container ocupe toda a altura da tela */
+  box-sizing: border-box; 
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0;
+    width: 100%; /* Ocupa 100% da largura em telas menores */
+    min-height: auto; /* Ajusta a altura automaticamente para telas menores */
+  }
+}
+
+/* Ajuste dos grupos de inputs */
+.inputGroup {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 50px;
+}
+
+/* Títulos */
+h2 {
+  margin-top: 20px;
+  text-align: left;
+  }
+
+/* Estilo dos parágrafos e inputs para manter a aparência de campos */
+p {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+
+/* Estilo dos inputs no modo de edição */
+input {
+  color: black;
+}
+
+/* Botão de edição */
+button {
+  margin-top: 20px;
+}
+
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #fff;
+  border: 1px solid #6363639d;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
