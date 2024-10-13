@@ -3,7 +3,7 @@
   flex-direction: column; /* Layout vertical */
   background-color: white; /* Cor de fundo */
   color: black; /* Cor do texto */
-  padding: 20px; /* Espaçamento interno */
+  padding: 0px; /* Espaçamento interno */
   border-radius: 20px; /* Bordas arredondadas */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
   margin-left: 200px; /* Espaço reservado para o menu lateral */

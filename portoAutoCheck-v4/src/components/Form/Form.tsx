@@ -9,11 +9,14 @@ interface FormProps {
 
 const Form: React.FC<FormProps> = ({ onSubmit, children }) => {
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
-      {children}
-    </form>
+    <div className={styles.container}> {/* Contêiner para centralização */}
+      <form className={styles.form} onSubmit={onSubmit}>
+        {children}
+      </form>
+    </div>
   );
 };
 
 export default Form;
+
 

@@ -36,6 +36,7 @@
 
 .menuItems a:hover {
   text-decoration: none;
+  color: #000000;
 }
 
 /* Estilo do ícone do menu hambúrguer */
@@ -54,7 +55,7 @@
   width: 35px;
   height: 4px;
   margin: 6px auto;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #00a1fc;
 }
 

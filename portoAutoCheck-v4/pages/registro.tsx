@@ -34,6 +34,7 @@ const Registro: React.FC = () => {
         <h1>Registro</h1>
         <Form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
+          <label htmlFor="name">Nome:</label>
             <Input 
               type="text" 
               id="name" 
@@ -44,6 +45,7 @@ const Registro: React.FC = () => {
             />
           </div>
           <div className={styles.inputGroup}>
+            <label htmlFor="email">E-mail:</label>
             <Input 
               type="text" 
               id="email" 
@@ -54,6 +56,7 @@ const Registro: React.FC = () => {
             />
           </div>
           <div className={styles.inputGroup}>
+            <label htmlFor="vehicle">Veículo:</label>
             <Input 
               type="text" 
               id="vehicle" 

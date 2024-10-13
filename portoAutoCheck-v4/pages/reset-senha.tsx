@@ -37,6 +37,7 @@ const ResetSenha: React.FC = () => {
       <main className={styles.main}>
         <Form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
+            <label htmlFor="email">E-mail:</label>
             <Input 
               type="email" 
               id="email" 
@@ -47,6 +48,7 @@ const ResetSenha: React.FC = () => {
             />
           </div>
           <div className={styles.inputGroup}>
+            <label htmlFor="cpf">CPF:</label>
             <Input 
               type="text" 
               id="cpf" 
@@ -57,6 +59,7 @@ const ResetSenha: React.FC = () => {
             />
           </div>
           <div className={styles.inputGroup}>
+            <label htmlFor="new-password">Nova Senha:</label>
             <Input 
               type="password" 
               id="new-password" 
