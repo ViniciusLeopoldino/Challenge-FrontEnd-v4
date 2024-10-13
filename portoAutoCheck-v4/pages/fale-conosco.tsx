@@ -1,9 +1,10 @@
 import React from 'react';
-import Input from '../components/Input/Input';
-import Button from '../components/Button/Button';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import styles from '../styles/pages/FaleConosco.module.css';
+import Input from '../src/components/Input/Input';
+import Button from '../src/components/Button/Button';
+import Footer from '../src/components/Footer/Footer';
+import Header from '../src/components/Header/Header';
+import styles from '../src/styles/pages/FaleConosco.module.css';
+import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
 // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 //   event.preventDefault();
@@ -15,6 +16,7 @@ const FaleConosco: React.FC = () => {
     <>
     <Header title="Fale Conosco" />
     <div className={styles.container}>
+    <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
       <div>
         <Input type="text" id="nome" name="nome" placeholder="Nome" />
         <br />

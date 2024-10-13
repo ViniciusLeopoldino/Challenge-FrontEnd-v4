@@ -12,6 +12,15 @@
   box-sizing: border-box; 
 }
 
+.menuLateral {
+  width: 250px; /* Defina a largura do Menu Lateral */
+}
+
+.content {
+  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+  padding: 20px; /* Espaçamento interno */
+}
+
 @media (max-width: 768px) {
   .container {
     margin-left: 0;
@@ -28,13 +37,13 @@
 }
 
 /* Títulos */
-h2 {
+/* h2 {
   margin-top: 20px;
   text-align: left;
-  }
+  } */
 
 /* Estilo dos parágrafos e inputs para manter a aparência de campos */
-p {
+/* p {
   margin-bottom: 10px;
   width: 100%;
   padding: 8px;
@@ -42,18 +51,18 @@ p {
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   box-sizing: border-box;
-}
+} */
 
 
 /* Estilo dos inputs no modo de edição */
-input {
+/* input {
   color: black;
-}
+} */
 
 /* Botão de edição */
-button {
+/* button {
   margin-top: 20px;
-}
+} */
 
 .inputGroup input,
 .inputGroup select {

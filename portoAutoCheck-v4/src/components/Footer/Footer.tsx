@@ -1,3 +1,4 @@
+// src/components/Footer/Footer.tsx
 import React from 'react';
 import styles from './Footer.module.css';
 

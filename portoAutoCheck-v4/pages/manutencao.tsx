@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Button from '../components/Button/Button';
-import styles from '../styles/pages/Manutencao.module.css';
+import Header from '../src/components/Header/Header';
+import Footer from '../src/components/Footer/Footer';
+import Button from '../src/components/Button/Button';
+import styles from '../src/styles/pages/Manutencao.module.css';
 import { useEffect } from 'react';
+import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
 const Manutencao: React.FC = () => {
   const [selectedMaintenance, setSelectedMaintenance] = useState('');
@@ -27,6 +28,7 @@ const Manutencao: React.FC = () => {
     <>
       <Header title='Manutenções'/>
       <main className={styles.main}>
+      <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
         <section className={styles.container}>
           <div className={styles.maintenanceInfo}>
             <h3>Última manutenção</h3>

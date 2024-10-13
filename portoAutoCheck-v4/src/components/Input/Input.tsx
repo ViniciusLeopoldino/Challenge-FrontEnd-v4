@@ -1,3 +1,4 @@
+// src/components/Input/Input.tsx
 import React from 'react';
 import styles from './Input.module.css';
 
@@ -10,7 +11,14 @@ interface InputProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const Input: React.FC<InputProps> = ({ id, name, type = 'text', value, placeholder, onChange }) => {
+const Input: React.FC<InputProps> = ({
+  id,
+  name,
+  type = 'text',
+  value,
+  placeholder,
+  onChange,
+}) => {
   return (
     <input
       id={id}
@@ -25,3 +33,4 @@ const Input: React.FC<InputProps> = ({ id, name, type = 'text', value, placehold
 };
 
 export default Input;
+

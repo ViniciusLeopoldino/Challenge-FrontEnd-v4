@@ -1,4 +1,37 @@
-.container {
+.main {
+  display: flex;
+}
+
+.content {
+  flex: 1; /* Faz o conteúdo ocupar o espaço restante */
+  padding: 20px; /* Espaçamento interno */
+}
+
+.integrantesContainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cartões se ajustem em múltiplas linhas */
+  gap: 20px; /* Espaçamento entre os cartões */
+  justify-content: center; /* Centraliza os cartões na linha */
+}
+
+.integranteCard {
+  background-color: #f9f9f9; /* Fundo claro para os cartões */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  width: 200px; /* Largura do cartão */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para os cartões */
+}
+
+.integranteImage {
+  width: 100%; /* Faz a imagem ocupar 100% da largura do cartão */
+  height: 150px; /* Define uma altura fixa para a imagem */
+  border-radius: 10px; /* Bordas arredondadas na imagem */
+  object-fit: cover; /* Corta a imagem para preencher a área */
+}
+
+
+/* .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -29,6 +62,6 @@
   }
   
   .socialIcons a:hover {
-    color: #00a1fc; /* Cor de hover */
+    color: #00a1fc; /* Cor de hover 
   }
-  
+   */

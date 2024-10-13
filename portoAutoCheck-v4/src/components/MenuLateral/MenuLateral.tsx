@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link'; // Importando o Link do Next.js
 import styles from '../MenuLateral/MenuLateral.module.css'; 
 import logo from '../img/Logo_PortoSeguro_menu.svg'; 
+import Image from 'next/image';
 
 const MenuLateral: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,17 +15,17 @@ const MenuLateral: React.FC = () => {
     <>
       <nav className={`${styles.menuLateral} ${isMenuOpen ? styles.open : ''}`}>
         <div className={styles.logo}>
-          <img src={logo} alt="Logo" />
+          <Image src={logo} alt="Logo" />
         </div>
         <ul className={styles.menuItems}>
-          <li><Link to="/perfil">Perfil</Link></li>
-          <li><Link to="/porto-auto-check">Porto Auto Check</Link></li>
-          <li><Link to="/manutencao">Manutenção</Link></li>
-          <li><Link to="/oficina-proxima">Oficina Próxima</Link></li>
-          <li><Link to="/fale-conosco">Fale Conosco</Link></li>
-          <li><Link to="/">Sair</Link></li>
+          <li><Link href="/perfil">Perfil</Link></li>
+          <li><Link href="/porto-auto-check">Porto Auto Check</Link></li>
+          <li><Link href="/manutencao">Manutenção</Link></li>
+          <li><Link href="/oficina-proxima">Oficina Próxima</Link></li>
+          <li><Link href="/fale-conosco">Fale Conosco</Link></li>
+          <li><Link href="/">Sair</Link></li>
           <br />
-          <li><Link to="/integrantes">Integrantes</Link></li>
+          <li><Link href="/integrantes">Integrantes</Link></li>
         </ul>
       </nav>
       <div className={styles.hamburger} onClick={toggleMenu}>

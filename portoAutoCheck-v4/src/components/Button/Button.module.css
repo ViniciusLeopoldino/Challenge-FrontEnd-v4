@@ -10,3 +10,6 @@
     margin: 5px;
   }
   
+  .button:hover {
+    background-color: #005bb5; /* Cor de fundo ao passar o mouse */
+  }

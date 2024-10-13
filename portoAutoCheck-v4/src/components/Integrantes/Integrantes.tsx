@@ -1,8 +1,9 @@
+// src/components/Integrantes/Integrantes.tsx
+
 import React from 'react';
 import styles from './Integrantes.module.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
-interface IntegranteProps {
+interface Integrante {
   name: string;
   rm: string;
   image: string;
@@ -10,20 +11,28 @@ interface IntegranteProps {
   linkedin: string;
 }
 
-const Integrantes: React.FC<{ integrantes: IntegranteProps[] }> = ({ integrantes }) => {
+interface IntegrantesProps {
+  integrantes: Integrante[];
+}
+
+const Integrantes: React.FC<IntegrantesProps> = ({ integrantes }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.integrantesContainer}>
       {integrantes.map((integrante) => (
-        <div key={integrante.rm} className={styles.integrante}>
-          <img src={integrante.image} alt={integrante.name} />
-          <h2>{integrante.name}</h2>
-          <p>RM:{integrante.rm}</p>
-          <div className={styles.socialIcons}>
+        <div key={integrante.rm} className={styles.integranteCard}>
+          <img
+            src={integrante.image}
+            alt={integrante.name}
+            className={styles.integranteImage}
+          />
+          <h3>{integrante.name}</h3>
+          <p>RM: {integrante.rm}</p>
+          <div>
             <a href={integrante.github} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-github"></i>
+              GitHub
             </a>
             <a href={integrante.linkedin} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-linkedin"></i>
+              LinkedIn
             </a>
           </div>
         </div>

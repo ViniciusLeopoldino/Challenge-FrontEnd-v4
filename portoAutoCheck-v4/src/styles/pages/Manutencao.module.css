@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: #fff;
-}
+} */
 
 .container {
   display: flex;
@@ -26,12 +26,12 @@ body {
     display: flex;
     flex-direction: column;
   }
-  h3 {
+  /* h3 {
     text-align: left;
-  }
-  label {
+  } */
+  /* label {
     text-align: left;
-  } 
+  }  */
 }
 
 /* Adicional: Estilização dos selects específicos na página de manutenção */
@@ -57,7 +57,7 @@ body {
   margin: 5px;
 }
 
- p {
+ /* p {
   margin-top: 0;
   border-radius: 30px;
 }
@@ -65,4 +65,4 @@ body {
 h3{
   margin-top: 20px;
   text-align: left;
-}
+} */

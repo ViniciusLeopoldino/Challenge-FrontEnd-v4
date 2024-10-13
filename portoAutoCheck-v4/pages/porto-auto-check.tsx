@@ -30,11 +30,12 @@
 
 
 import React, { useState } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Button from '../components/Button/Button';
-import Chatbot from '../components/Chatbot/Chatbot'; // Importa o componente chatbot
-import styles from '../styles/pages/PortoAutoCheck.module.css';
+import Header from '../src/components/Header/Header';
+import Footer from '../src/components/Footer/Footer';
+import Button from '../src/components/Button/Button';
+import Chatbot from '../src/components/Chatbot/Chatbot'; // Importa o componente chatbot
+import styles from '../src/styles/pages/PortoAutoCheck.module.css';
+import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
 const PortoAutoCheck: React.FC = () => {
   const [showDiagnosticChat, setShowDiagnosticChat] = useState(false);
@@ -56,6 +57,7 @@ const PortoAutoCheck: React.FC = () => {
     <>
       <Header title="Porto Auto Check" />
       <div className={styles.container}>
+      <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
         <main className={styles.main}>
           <section className={styles.section}>
             <h2>Autoatendimento</h2>

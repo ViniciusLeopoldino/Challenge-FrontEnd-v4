@@ -1,15 +1,17 @@
 import React from 'react';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import styles from '../styles/pages/OficinaProxima.module.css';
-import Button from '../components/Button/Button';
-import Input from '../components/Input/Input';
+import Footer from '../src/components/Footer/Footer';
+import Header from '../src/components/Header/Header';
+import styles from '../src/styles/pages/OficinaProxima.module.css';
+import Button from '../src/components/Button/Button';
+import Input from '../src/components/Input/Input';
+import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
 const OficinaProxima: React.FC = () => {
   return (
     <>
     <Header title="Oficina Próxima" />
     <div className={styles.container}>
+    <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
       <form>
         <label htmlFor="cep">Digite seu CEP:</label>
         <Input type="text" id="cep" name="cep" />

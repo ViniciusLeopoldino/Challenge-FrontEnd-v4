@@ -1,3 +1,4 @@
+// src/components/Button/Button.tsx
 import React from 'react';
 import styles from './Button.module.css';
 
@@ -8,5 +9,3 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
 };
 
 export default Button;
-
-
