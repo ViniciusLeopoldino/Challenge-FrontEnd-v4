@@ -1,9 +1,22 @@
 .menuLateral {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100vh;
+  background-color: #00a1fc;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000; */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* Ajuste conforme necessário */
+  height: 100vh; /* Altura total da tela */
   background-color: #00a1fc;
   color: #fff;
   display: flex;

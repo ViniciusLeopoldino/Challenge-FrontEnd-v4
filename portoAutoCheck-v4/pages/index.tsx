@@ -8,10 +8,10 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/login'); // Redireciona para a página de login
+    router.push('/login'); 
   }, [router]);
 
-  return null; // Não renderiza nada na página inicial
+  return null; 
 };
 
 export default Home;

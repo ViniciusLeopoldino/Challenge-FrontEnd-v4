@@ -16,4 +16,17 @@ html, body {
   flex-grow: 1; 
 }
 
-  
+.container {
+  display: flex; /* Para alinhar o menu lateral e o conteúdo principal horizontalmente */
+}
+
+.menuLateral {
+  width: 300px; /* Ajuste a largura do menu lateral conforme necessário */
+  background-color: #f8f9fa; /* Cor de fundo para o menu lateral */
+}
+
+.mainContent {
+  flex-grow: 1; /* Faz com que o conteúdo principal ocupe o espaço restante */
+  padding: 20px; /* Adiciona um padding ao conteúdo principal */
+  margin-left: 250px; /* Espaço entre o menu lateral e o conteúdo */
+}

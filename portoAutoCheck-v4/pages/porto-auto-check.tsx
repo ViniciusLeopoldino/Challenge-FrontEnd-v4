@@ -36,6 +36,7 @@ import Button from '../src/components/Button/Button';
 import Chatbot from '../src/components/Chatbot/Chatbot'; // Importa o componente chatbot
 import styles from '../src/styles/pages/PortoAutoCheck.module.css';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
+import Form from '../src/components/Form/Form';
 
 const PortoAutoCheck: React.FC = () => {
   const [showDiagnosticChat, setShowDiagnosticChat] = useState(false);
@@ -58,6 +59,7 @@ const PortoAutoCheck: React.FC = () => {
       <Header title="Porto Auto Check" />
       <div className={styles.container}>
       <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
+      <Form onSubmit={(event) => { event.preventDefault(); /* handle form submission */ }}>
         <main className={styles.main}>
           <section className={styles.section}>
             <h2>Autoatendimento</h2>
@@ -68,6 +70,7 @@ const PortoAutoCheck: React.FC = () => {
             </div>
           </section>
         </main>
+      </Form>
       </div>
       
       {/* Chatbot para Autodiagnóstico */}

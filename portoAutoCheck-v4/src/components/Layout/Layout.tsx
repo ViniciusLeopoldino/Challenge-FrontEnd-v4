@@ -12,8 +12,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Seu Título Aqui</title>
-        <meta name="description" content="Descrição do seu site." />
+        <title>Porto Auto Check</title>
+        <meta name="description" content="Site Porto Auto Check" />
       </Head>
       <div className={styles.container}>
         <MenuLateral />

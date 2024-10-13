@@ -6,19 +6,19 @@
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  margin-left: 200px; /*Espaço reservado para o menu lateral*/
-  width: calc(100% - 200px); /*O container ocupa o restante da tela*/
+  margin-left: 200px; /* Espaço reservado para o menu lateral */
+  width: calc(100% - 200px); /* O container ocupa o restante da tela */
   min-height: 50%; /* Garante que o container ocupe toda a altura da tela */
   box-sizing: border-box; 
 }
 
 .menuLateral {
-  width: 250px; /* Defina a largura do Menu Lateral */
+  width: 250px; /* Define a largura do Menu Lateral */
 }
 
 .content {
   flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
-  padding: 20px; /* Espaçamento interno */
+  /* padding: 0px; Espaçamento interno */
 }
 
 @media (max-width: 768px) {
@@ -29,48 +29,54 @@
   }
 }
 
-/* Ajuste dos grupos de inputs */
-.inputGroup {
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 50px;
+/* Ajuste dos grupos de inputs para layout lado a lado */
+.dataContainer {
+  display: flex;
+  justify-content: flex-start; /* Justifica os itens à esquerda */
+  margin-bottom: 20px; /* Espaço entre os grupos de dados */
 }
 
-/* Títulos */
-/* h2 {
-  margin-top: 20px;
-  text-align: left;
-  } */
+/* Adiciona flexibilidade e margem às colunas */
+.inputGroup {
+  flex: 1; /* Permite que as colunas ocupem igualmente o espaço disponível */
+  margin-right: 20px; /* Espaço entre os grupos de dados */
+}
 
-/* Estilo dos parágrafos e inputs para manter a aparência de campos */
-/* p {
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 8px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  box-sizing: border-box;
-} */
+/* Remove o espaçamento da última coluna */
+.inputGroup:last-child {
+  margin-right: 0; 
+}
 
-
-/* Estilo dos inputs no modo de edição */
-/* input {
-  color: black;
-} */
-
-/* Botão de edição */
-/* button {
-  margin-top: 20px;
-} */
-
+/* Estilo dos inputs e selects */
 .inputGroup input,
 .inputGroup select {
   width: 100%;
   padding: 10px;
   border-radius: 50px;
-  background-color: #fff;
-  border: 1px solid #6363639d;
+  background-color: #fff; /* Fundo branco para inputs */
+  border: 1px solid #6363639d; /* Borda do input */
   box-sizing: border-box;
-  margin-top: 5px;
+  margin-top: 5px; /* Espaçamento acima dos inputs */
+  color: black; /* Cor do texto nos inputs */
 }
+
+/* Estilo dos inputs ao focar */
+.inputGroup input:focus {
+  border-color: #007bff; /* Borda azul ao focar */
+  outline: none; /* Remove a borda padrão do navegador */
+}
+
+/* Estilo dos campos como inputs preenchidos */
+.inputField {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px; /* Bordas arredondadas */
+  background-color: #f0f0f0; /* Cor de fundo como um input */
+  border: 1px solid #ccc; /* Borda do input */
+  margin-bottom: 10px; /* Espaço entre os campos */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  color: #333; /* Cor do texto */
+}
+
+
