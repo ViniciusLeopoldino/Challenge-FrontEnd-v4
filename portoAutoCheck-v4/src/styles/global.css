@@ -8,15 +8,14 @@ html, body {
 }
 
 body {
-  margin: 0; /* Remover margem padrão */
-  padding: 0; /* Remover padding padrão */
+  /* margin: 0; Remover margem padrão */
+  /* padding: 0; Remover padding padrão */
   padding-left: 50px; /* Adiciona padding à esquerda para o menu lateral */
   /* padding-right: 300px; Se você não precisar do padding direito, remova essa linha */
   height: 100%; /* Garantir que o body ocupe 100% da altura da tela */
   background-image: linear-gradient(180deg, #ffffff 15%, #00a1fc 85%);
   background-size: cover; /* Faz com que o fundo cubra toda a área sem repetir */
   background-repeat: no-repeat; /* Impede a repetição do fundo */
-
   /* background-image: linear-gradient(180deg, #ffffff 15%, #00a1fc 85%); */
   /* background-size: cover; Faz com que o fundo cubra toda a área sem repetir */
   /* background-repeat: no-repeat; Impede a repetição do fundo */

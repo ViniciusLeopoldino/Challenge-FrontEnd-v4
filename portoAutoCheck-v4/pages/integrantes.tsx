@@ -1,5 +1,3 @@
-// src/pages/Integrantes.tsx (ou onde você estiver definindo a página)
-
 import React from 'react';
 import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
