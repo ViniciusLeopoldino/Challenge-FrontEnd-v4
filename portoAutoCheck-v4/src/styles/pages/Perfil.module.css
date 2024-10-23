@@ -1,45 +1,58 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  color: black;
-  padding: 20px;
-  border-radius: 20px;
+  display: flex; /* Exibe os elementos em linha */
+  flex-direction: column; /* Alinha os elementos em coluna */
+  background-color: white; /* Cor de fundo do container */
+  color: black; /* Cor do texto */
+  padding: 0px; /* Espaçamento interno */
+  border-radius: 20px; /* Bordas arredondadas */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-left: 200px; /* Espaço reservado para o menu lateral */
-  width: calc(100% - 200px); /* O container ocupa o restante da tela */
-  min-height: 50%; /* Garante que o container ocupe toda a altura da tela */
-  box-sizing: border-box; 
-}
-
-.menuLateral {
-  width: 250px; /* Define a largura do Menu Lateral */
-}
-
-.content {
-  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
-  /* padding: 0px; Espaçamento interno */
+  /* width: calc(100% - 200px); O container ocupa o restante da tela */
+  /* min-height: 50%; Garante que o container ocupe toda a altura da tela */
+  /* box-sizing: border-box;  */
 }
 
 @media (max-width: 768px) {
   .container {
     margin-left: 0;
-    width: 100%; /* Ocupa 100% da largura em telas menores */
+    /* width: 100%; Ocupa 100% da largura em telas menores */
     min-height: auto; /* Ajusta a altura automaticamente para telas menores */
+  }
+
+  .dataContainer {
+    flex-direction: column; /* Alinha os elementos em coluna */
+  }
+
+  .inputGroup {
+    margin: 10px; /* Espaçamento entre os grupos de inputs */ 
+    width: 100%; /* Ocupa 100% da largura */
+  }
+
+  .inputGroup:last-child {
+    margin-right: 10px; /* Espaçamento da última coluna */
+  }
+
+  .inputField {
+    margin-bottom: 10px; /* Espaçamento entre os campos */
+    width: 100%; /* Ocupa 100% da largura */
+  }
+
+  .inputGroup input,
+  .inputGroup select {
+    width: 100%; /* Ocupa 100% da largura */
   }
 }
 
 /* Ajuste dos grupos de inputs para layout lado a lado */
 .dataContainer {
-  display: flex;
-  justify-content: flex-start; /* Justifica os itens à esquerda */
-  margin-bottom: 20px; /* Espaço entre os grupos de dados */
+  display: flex; /* Exibe os grupos de dados lado a lado */
+  width: 100%; /* Ocupa 100% da largura do container */
 }
 
-/* Adiciona flexibilidade e margem às colunas */
+/* Adiciona margem às colunas */
 .inputGroup {
-  flex: 1; /* Permite que as colunas ocupem igualmente o espaço disponível */
-  margin-right: 20px; /* Espaço entre os grupos de dados */
+  /* flex: 1;  */
+  margin: 10px; 
 }
 
 /* Remove o espaçamento da última coluna */
@@ -50,13 +63,13 @@
 /* Estilo dos inputs e selects */
 .inputGroup input,
 .inputGroup select {
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   border-radius: 50px;
-  background-color: #fff; /* Fundo branco para inputs */
+  /* background-color: #fff; Fundo branco para inputs */
   border: 1px solid #6363639d; /* Borda do input */
   box-sizing: border-box;
-  margin-top: 5px; /* Espaçamento acima dos inputs */
+  /* margin-top: 5px; Espaçamento acima dos inputs */
   color: black; /* Cor do texto nos inputs */
 }
 
@@ -70,8 +83,8 @@
 .inputField {
   display: block;
   width: 100%;
-  padding: 5px;
-  border-radius: 10px; /* Bordas arredondadas */
+  padding: 10px;
+  border-radius: 50px; /* Bordas arredondadas */
   background-color: #f0f0f0; /* Cor de fundo como um input */
   border: 1px solid #ccc; /* Borda do input */
   margin-bottom: 10px; /* Espaço entre os campos */

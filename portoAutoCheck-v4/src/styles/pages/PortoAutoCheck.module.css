@@ -10,6 +10,20 @@
   /* box-sizing: border-box; Inclui padding e border na largura e altura */
 }
 
+.section {
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Layout vertical */
+  /* width: 100%; Ocupa 100% da largura */
+  align-items: center; /* Alinha ao centro */
+  /* background-color: white; Cor de fundo */
+  /* color: black; Cor do texto */
+  /* padding: 0px; Espaçamento interno */
+  /* border-radius: 20px; Bordas arredondadas */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); Sombra */
+  /* margin-left: 200px; Espaço reservado para o menu lateral */
+  /* box-sizing: border-box; Inclui padding e border na largura e altura */
+}
+
 @media (max-width: 768px) {
   /* Estilos para telas menores (responsividade) */
   .container {

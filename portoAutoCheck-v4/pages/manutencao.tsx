@@ -5,6 +5,7 @@ import Button from '../src/components/Button/Button';
 import styles from '../src/styles/pages/Manutencao.module.css';
 import { useEffect } from 'react';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
+import Input from '../src/components/Input/Input';
 
 const Manutencao: React.FC = () => {
   const [selectedMaintenance, setSelectedMaintenance] = useState('');
@@ -24,18 +25,24 @@ const Manutencao: React.FC = () => {
     // console.log('Manutenção não agendada!');
   }, [selectedMaintenance, selectedDate]);
 
+
+  //TODO: Implementar a lógica de agendamento de manutenção com base na tela de perfil
+
   return (
     <>
       <Header title='Manutenções'/>
       <main className={styles.main}>
       <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
         <section className={styles.container}>
-          <div className={styles.maintenanceInfo}>
+          <div className={styles.lastMaintenanceInfo}>
             <h3>Última manutenção</h3>
             <p>Item: Pastilha de Freio | Data: 09/01/2024</p>
             <p>Quilometragem: 15.000 | Tipo: Corretiva</p>
+          </div>
+          <div className={styles.nextMaintenanceInfo}>
             <h3>Próxima manutenção</h3>
-            <p>Item: Câmbio | Data: 01/11/2024</p>
+            <label htmlFor="item">Item:</label>
+            <Input id="item" name="item" /> <p>Câmbio | Data: 01/11/2024</p>
             <p>Quilometragem: 20.000 | Tipo: Preventiva</p>
           </div>
           <section className={styles.scheduleSection}>

@@ -1,7 +1,3 @@
-/* body {
-  background-color: #fff;
-} */
-
 .container {
   display: flex;
   flex-direction: column;
@@ -16,8 +12,20 @@
   box-sizing: border-box; 
 }
 
+.lastMaintenanceInfo {
+  display: flex;
+  /* flex-direction: column; */
+  margin-top: 20px;
+  text-align: left;
+  align-items: left;
+
+}
+
 @media (max-width: 768px) {
   .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 0;
     width: 100%; /* Ocupa 100% da largura em telas menores */
     min-height: auto; /* Ajusta a altura automaticamente para telas menores */
@@ -25,13 +33,9 @@
   .scheduleForm {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
-  /* h3 {
-    text-align: left;
-  } */
-  /* label {
-    text-align: left;
-  }  */
+  
 }
 
 /* Adicional: Estilização dos selects específicos na página de manutenção */

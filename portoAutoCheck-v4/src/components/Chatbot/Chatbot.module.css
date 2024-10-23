@@ -28,14 +28,45 @@
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
+    align-items: center;
+    text-align: center;
   }
   
-  /* input {
-    padding: 10px;
-    border: 1px solid #ccc;
+  .chatWindow input {
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid #6363639d; 
+  box-sizing: border-box;
+  color: black; 
+  }
+
+  .chatWindow button {
+    padding: 10px 30px;
+    background-color: #00a1fc;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 5px;
+  }
+
+  .chatWindow button:hover {
+    background-color: #005bb5;
+  }
+
+  .chatbotHeader button {
+    padding: 5px 5px;
+    background-color: #00a1fc;
+    color: white;
+    border: none;
     border-radius: 5px;
-    width: 100%;
-  } */
+    cursor: pointer;
+  }
+
+  .chatbotHeader button:hover {
+    background-color: #b50000;
+  }
   
   /* button {
     padding: 10px 20px;
