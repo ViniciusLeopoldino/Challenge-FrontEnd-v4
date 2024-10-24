@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios'; // Importando o axios
+import axios from 'axios'; 
 import Form from '../src/components/Form/Form';
 import Input from '../src/components/Input/Input';
 import Button from '../src/components/Button/Button';
@@ -14,7 +14,7 @@ const Registro: React.FC = () => {
   const [email, setEmail] = useState('');
   const [vehicle, setVehicle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(false); // Estado de carregamento
+  const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
