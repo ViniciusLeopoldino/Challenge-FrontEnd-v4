@@ -30,11 +30,11 @@ const Registro: React.FC = () => {
 
     // Faz a requisição para a API Java usando Axios
     try {
-      const response = await axios.post('https://.../cadastro', { // incluir aqui a API de JAVA
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/cadastro`, {
         nome: name,
         email: email,
         veiculo: vehicle,
-      });
+    });
 
       if (response.status === 200) {
         // Se o cadastro for bem-sucedido, redireciona para a página de login
