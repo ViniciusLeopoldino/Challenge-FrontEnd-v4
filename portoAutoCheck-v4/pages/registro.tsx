@@ -14,6 +14,7 @@ const Registro: React.FC = () => {
   const [senha, setSenha] = useState('');
   const [confsenha, setConfsenha] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false); 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +28,9 @@ const Registro: React.FC = () => {
 
     setLoading(true); // Inicia o estado de carregamento
     setErrorMessage(''); // Limpa mensagens anteriores
+    setSuccessMessage(''); // Limpa mensagens de sucesso anteriores
 
-    // Faz a requisição para a API usando Axioss
+    // Faz a requisição para a API usando Axios
     try {
       const response = await axios.post('/api/cadastro', { // Alterado para a rota da API
         email: email,
@@ -37,8 +39,10 @@ const Registro: React.FC = () => {
       });
 
       if (response.status === 201) { // Alterado para verificar o status 201
-        // Se o cadastro for bem-sucedido, redireciona para a página de login
-        router.push('/');
+        setSuccessMessage('Cadastro realizado com sucesso!');
+        
+        // Redireciona após 2 segundos
+        setTimeout(() => router.push('/'), 2000);
       } else {
         // Se a API retornar um erro, exibe a mensagem de erro
         setErrorMessage('Erro ao realizar o cadastro. Por favor, tente novamente.');
@@ -91,8 +95,9 @@ const Registro: React.FC = () => {
             />
           </div>
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+          {successMessage && <p className={styles.success}>{successMessage}</p>} {/* Exibe a mensagem de sucesso */}
           <div className={styles.buttonGroup}>
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading} >
               {loading ? 'Registrando...' : 'Registrar'}
             </Button>
             <Button type="button" onClick={() => router.push('/')}>
@@ -106,3 +111,4 @@ const Registro: React.FC = () => {
 };
 
 export default Registro;
+

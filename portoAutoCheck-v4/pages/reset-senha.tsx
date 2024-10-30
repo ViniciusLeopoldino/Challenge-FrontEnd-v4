@@ -9,24 +9,45 @@ const ResetSenha: React.FC = () => {
   const router = useRouter();
 
   const [email, setEmail] = useState('');
-  const [cpf, setCpf] = useState('');
   const [newPassword, setNewPassword] = useState('');
+  const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Validação simples para garantir que todos os campos estão preenchidos
-    if (!email || !cpf || !newPassword) {
+    if (!email || !newPassword || !confirmNewPassword) {
       setErrorMessage('Por favor, preencha todos os campos.');
       return;
     }
 
-    // Simulação de envio do formulário e redefinição de senha
-    console.log("E-mail:", email, "CPF:", cpf, "Nova Senha:", newPassword);
+    if (newPassword !== confirmNewPassword) {
+      setErrorMessage('A nova senha e a confirmação não coincidem.');
+      return;
+    }
 
-    // Redireciona para a página de login após o envio bem-sucedido
-    router.push('/');
+    try {
+      const response = await fetch('/api/reset-senha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, newPassword }),
+      });
+      
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message);
+      } else {
+        setSuccessMessage('Senha atualizada com sucesso!');
+        // Redireciona para a página de login após o envio bem-sucedido
+        setTimeout(() => router.push('/'), 2000);
+      }
+    } catch (error) {
+      setErrorMessage('Erro ao tentar redefinir a senha. Tente novamente.');
+    }
   };
 
   return (
@@ -48,17 +69,6 @@ const ResetSenha: React.FC = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="cpf">CPF:</label>
-            <Input 
-              type="text" 
-              id="cpf" 
-              name="cpf" 
-              placeholder="CPF" 
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
-            />
-          </div>
-          <div className={styles.inputGroup}>
             <label htmlFor="new-password">Nova Senha:</label>
             <Input 
               type="password" 
@@ -69,9 +79,21 @@ const ResetSenha: React.FC = () => {
               onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="confirm-new-password">Confirme a Nova Senha:</label>
+            <Input 
+              type="password" 
+              id="confirm-new-password" 
+              name="confirm-new-password" 
+              placeholder="Confirme a Nova Senha" 
+              value={confirmNewPassword}
+              onChange={(e) => setConfirmNewPassword(e.target.value)}
+            />
+          </div>
           {errorMessage && <p className={styles.error}>{errorMessage}</p>} {/* Exibe mensagem de erro se houver */}
+          {successMessage && <p className={styles.success}>{successMessage}</p>} {/* Exibe mensagem de sucesso */}
           <div className={styles.buttonGroup}>
-            <Button type="submit">Enviar</Button>
+            <Button type="submit">Recuperar</Button>
             <Button type="button" onClick={() => router.push('/')}>Voltar</Button>
           </div>
         </Form>
@@ -81,7 +103,3 @@ const ResetSenha: React.FC = () => {
 };
 
 export default ResetSenha;
-
-
-
-

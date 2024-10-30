@@ -1,4 +1,3 @@
-// lib/db.js
 import oracledb from 'oracledb';
 
 async function getConnection() {
