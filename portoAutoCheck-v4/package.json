@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-free": "^6.6.0",
     "axios": "^1.7.7",
     "next": "^14.2.11",
+    "oracledb": "^6.6.0",
     "react": "^18.3.1",
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/node": "22.5.5",
+    "@types/oracledb": "^6.5.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",

@@ -10,9 +10,9 @@ const Registro: React.FC = () => {
   const router = useRouter();
 
   // Estados para armazenar os valores dos inputs
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [vehicle, setVehicle] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confsenha, setConfsenha] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loading, setLoading] = useState(false); 
 
@@ -20,7 +20,7 @@ const Registro: React.FC = () => {
     event.preventDefault();
 
     // Validação simples dos campos
-    if (!name || !email || !vehicle) {
+    if (!email || !senha || !confsenha) {
       setErrorMessage('Todos os campos são obrigatórios.');
       return;
     }
@@ -28,15 +28,15 @@ const Registro: React.FC = () => {
     setLoading(true); // Inicia o estado de carregamento
     setErrorMessage(''); // Limpa mensagens anteriores
 
-    // Faz a requisição para a API Java usando Axios
+    // Faz a requisição para a API usando Axios
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/cadastro`, {
-        nome: name,
+      const response = await axios.post('/api/cadastro', { // Alterado para a rota da API
         email: email,
-        veiculo: vehicle,
-    });
+        senha: senha,
+        confsenha: confsenha,
+      });
 
-      if (response.status === 200) {
+      if (response.status === 201) { // Alterado para verificar o status 201
         // Se o cadastro for bem-sucedido, redireciona para a página de login
         router.push('/');
       } else {
@@ -58,39 +58,36 @@ const Registro: React.FC = () => {
         <h1>Registro</h1>
         <Form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
-            <label htmlFor="name">Nome:</label>
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              //required
-            />
-          </div>
-          <div className={styles.inputGroup}>
             <label htmlFor="email">E-mail:</label>
             <Input
-              type="email"
+              type="text"
               id="email"
               name="email"
               placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              //required
             />
           </div>
           <div className={styles.inputGroup}>
-            <label htmlFor="vehicle">Veículo:</label>
+            <label htmlFor="senha">Senha:</label>
             <Input
-              type="text"
-              id="vehicle"
-              name="vehicle"
-              placeholder="Veículo"
-              value={vehicle}
-              onChange={(e) => setVehicle(e.target.value)}
-              //required
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <label htmlFor="conf-senha">Confirme a senha:</label>
+            <Input
+              type="password"
+              id="conf-senha"
+              name="conf-senha"
+              placeholder="Confirme sua senha"
+              value={confsenha}
+              onChange={(e) => setConfsenha(e.target.value)}
             />
           </div>
           {errorMessage && <p className={styles.error}>{errorMessage}</p>}

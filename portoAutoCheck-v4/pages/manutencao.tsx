@@ -2,70 +2,164 @@ import React, { useState } from 'react';
 import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
 import Button from '../src/components/Button/Button';
-import styles from '../src/styles/pages/Manutencao.module.css';
-import { useEffect } from 'react';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 import Input from '../src/components/Input/Input';
+import styles from '../src/styles/pages/Manutencao.module.css';
 
 const Manutencao: React.FC = () => {
-  const [selectedMaintenance, setSelectedMaintenance] = useState('');
-  const [selectedDate, setSelectedDate] = useState('');
+  const [isEditing, setIsEditing] = useState(false); // Estado para alternar entre edição e visualização
+  const [maintenanceData, setMaintenanceData] = useState({
+    lastMaintenanceItem: 'Pastilha de Freio',
+    lastMaintenanceDate: '09/01/2024',
+    lastMaintenanceKm: '15.000',
+    lastMaintenanceType: 'Corretiva',
+    nextMaintenanceItem: 'Câmbio',
+    nextMaintenanceDate: '01/11/2024',
+    nextMaintenanceKm: '20.000',
+    nextMaintenanceType: 'Preventiva',
+  });
 
-  const handleMaintenanceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedMaintenance(event.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaintenanceData({
+      ...maintenanceData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDate(event.target.value);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aqui você pode adicionar a lógica para salvar as alterações
+    setIsEditing(false); // Finaliza o modo de edição
   };
-
-  useEffect(() => {
-    // console.log(selectedMaintenance, selectedDate);
-    // console.log('Manutenção agendada com sucesso!');
-    // console.log('Manutenção não agendada!');
-  }, [selectedMaintenance, selectedDate]);
-
-
-  //TODO: Implementar a lógica de agendamento de manutenção com base na tela de perfil
 
   return (
     <>
-      <Header title='Manutenções'/>
+      <Header title="Manutenções" />
       <main className={styles.main}>
-      <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
+        <MenuLateral /> {/* Menu lateral */}
         <section className={styles.container}>
-          <div className={styles.lastMaintenanceInfo}>
-            <h3>Última manutenção</h3>
-            <p>Item: Pastilha de Freio | Data: 09/01/2024</p>
-            <p>Quilometragem: 15.000 | Tipo: Corretiva</p>
+        <div className={styles.dataContainer}>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.lastMaintenanceInfo}>
+              <h3>Última manutenção</h3>
+              <p>Item:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="lastMaintenanceItem"
+                    name="lastMaintenanceItem"
+                    value={maintenanceData.lastMaintenanceItem}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.lastMaintenanceItem
+                )}
+              </span>
+              <p>Data:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="lastMaintenanceDate"
+                    name="lastMaintenanceDate"
+                    value={maintenanceData.lastMaintenanceDate}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.lastMaintenanceDate
+                )}
+              </span>
+              <p>Quilometragem:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="lastMaintenanceKm"
+                    name="lastMaintenanceKm"
+                    value={maintenanceData.lastMaintenanceKm}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.lastMaintenanceKm
+                )}
+              </span>
+              <p>Tipo:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="lastMaintenanceType"
+                    name="lastMaintenanceType"
+                    value={maintenanceData.lastMaintenanceType}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.lastMaintenanceType
+                )}
+              </span>
+            </div>
+
+            <div className={styles.nextMaintenanceInfo}>
+              <h3>Próxima manutenção</h3>
+              <p>Item:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="nextMaintenanceItem"
+                    name="nextMaintenanceItem"
+                    value={maintenanceData.nextMaintenanceItem}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.nextMaintenanceItem
+                )}
+              </span>
+              <p>Data:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="nextMaintenanceDate"
+                    name="nextMaintenanceDate"
+                    value={maintenanceData.nextMaintenanceDate}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.nextMaintenanceDate
+                )}
+              </span>
+              <p>Quilometragem:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="nextMaintenanceKm"
+                    name="nextMaintenanceKm"
+                    value={maintenanceData.nextMaintenanceKm}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.nextMaintenanceKm
+                )}
+              </span>
+              <p>Tipo:</p>
+              <span className={styles.inputField}>
+                {isEditing ? (
+                  <Input
+                    id="nextMaintenanceType"
+                    name="nextMaintenanceType"
+                    value={maintenanceData.nextMaintenanceType}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  maintenanceData.nextMaintenanceType
+                )}
+              </span>
+            </div>
+
+            <div className={styles.buttonGroup}>
+              <Button type="button" onClick={() => setIsEditing(!isEditing)}>
+                {isEditing ? 'Salvar' : 'Editar'}
+              </Button>
+              {isEditing && <Button type="submit">Confirmar</Button>}
+            </div>
+          </form>
           </div>
-          <div className={styles.nextMaintenanceInfo}>
-            <h3>Próxima manutenção</h3>
-            <label htmlFor="item">Item:</label>
-            <Input id="item" name="item" /> <p>Câmbio | Data: 01/11/2024</p>
-            <p>Quilometragem: 20.000 | Tipo: Preventiva</p>
-          </div>
-          <section className={styles.scheduleSection}>
-            <h3>Agendar nova manutenção</h3>
-            <form className={styles.scheduleForm}>
-              <label htmlFor="maintenance">Tipo de Manutenção:</label>
-              <select id="maintenance" value={selectedMaintenance} onChange={handleMaintenanceChange}>
-                <option value="">Selecione</option>
-                <option value="preventiva">Preventiva</option>
-                <option value="corretiva">Corretiva</option>
-              </select>
-              <label htmlFor="date">Data:</label>
-              <select id="date" value={selectedDate} onChange={handleDateChange}>
-                <option value="">Selecione</option>
-                <option value="01">Segunda</option>
-                <option value="02">Terça</option>
-                <option value="03">Quarta</option>
-                <option value="04">Quinta</option>
-                <option value="05">Sexta</option>
-              </select>
-              <Button type="submit">Agendar</Button>
-            </form>
-          </section>
         </section>
       </main>
       <Footer />
