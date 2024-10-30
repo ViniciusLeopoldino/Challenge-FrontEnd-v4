@@ -1,5 +1,4 @@
 import { getConnection } from './db';
-import bcrypt from 'bcrypt';
 
 const resetSenha = async (req, res) => {
   if (req.method === 'POST') {
@@ -24,14 +23,11 @@ const resetSenha = async (req, res) => {
         return res.status(404).json({ message: 'E-mail não encontrado.' });
       }
 
-      // Gerar o hash da nova senha
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-      // Atualiza ambas as colunas 'senha' e 'confsenha'
+      // Atualiza ambas as colunas 'senha' e 'confsenha' com a nova senha em texto plano
       await connection.execute('UPDATE cadastro SET senha = :senha, confsenha = :confsenha WHERE email = :email', 
         {
-          senha: hashedPassword,
-          confsenha: hashedPassword,
+          senha: newPassword, // Usando a senha sem hash
+          confsenha: newPassword, // Usando a senha sem hash
           email: email
         }
       );
@@ -58,3 +54,4 @@ const resetSenha = async (req, res) => {
 };
 
 export default resetSenha;
+
