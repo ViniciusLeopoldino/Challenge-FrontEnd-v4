@@ -28,7 +28,7 @@ const Registro: React.FC = () => {
     setLoading(true); // Inicia o estado de carregamento
     setErrorMessage(''); // Limpa mensagens anteriores
 
-    // Faz a requisição para a API usando Axios
+    // Faz a requisição para a API usando Axioss
     try {
       const response = await axios.post('/api/cadastro', { // Alterado para a rota da API
         email: email,
