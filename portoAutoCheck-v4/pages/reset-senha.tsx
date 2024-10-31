@@ -36,13 +36,11 @@ const ResetSenha: React.FC = () => {
         body: JSON.stringify({ email, newPassword }),
       });
       
-
       if (!response.ok) {
         const errorData = await response.json();
         setErrorMessage(errorData.message);
       } else {
         setSuccessMessage('Senha atualizada com sucesso!');
-        // Redireciona para a página de login após o envio bem-sucedido
         setTimeout(() => router.push('/'), 2000);
       }
     } catch (error) {
@@ -90,8 +88,8 @@ const ResetSenha: React.FC = () => {
               onChange={(e) => setConfirmNewPassword(e.target.value)}
             />
           </div>
-          {errorMessage && <p className={styles.error}>{errorMessage}</p>} {/* Exibe mensagem de erro se houver */}
-          {successMessage && <p className={styles.success}>{successMessage}</p>} {/* Exibe mensagem de sucesso */}
+          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+          {successMessage && <p className={styles.success}>{successMessage}</p>}
           <div className={styles.buttonGroup}>
             <Button type="submit">Recuperar</Button>
             <Button type="button" onClick={() => router.push('/')}>Voltar</Button>

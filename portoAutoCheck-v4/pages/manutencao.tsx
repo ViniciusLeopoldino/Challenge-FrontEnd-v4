@@ -1,167 +1,157 @@
 import React, { useState } from 'react';
 import Header from '../src/components/Header/Header';
-import Footer from '../src/components/Footer/Footer';
 import Button from '../src/components/Button/Button';
+import Footer from '../src/components/Footer/Footer';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
-import Input from '../src/components/Input/Input';
-import styles from '../src/styles/pages/Manutencao.module.css';
+import Form from '../src/components/Form/Form';
+import styles from '../src/styles/pages/SharedForm.module.css';
 
 const Manutencao: React.FC = () => {
-  const [isEditing, setIsEditing] = useState(false); // Estado para alternar entre edição e visualização
-  const [maintenanceData, setMaintenanceData] = useState({
-    lastMaintenanceItem: 'Pastilha de Freio',
-    lastMaintenanceDate: '09/01/2024',
-    lastMaintenanceKm: '15.000',
-    lastMaintenanceType: 'Corretiva',
-    nextMaintenanceItem: 'Câmbio',
-    nextMaintenanceDate: '01/11/2024',
-    nextMaintenanceKm: '20.000',
-    nextMaintenanceType: 'Preventiva',
+  const [isEditing, setIsEditing] = useState(false);
+  const [userData, setUserData] = useState({
+    // Última Manutenção
+    itemUlt: 'Pastilha de Freio',
+    dataUlt: '10/10/2021',
+    kmUlt: '10000',
+    tipoManutUlt: 'Corretiva',
+    oficinaUlt: 'Oficina Z',
+    // Próxima Manutenção
+    itemPrc: 'Óleo do Motor',
+    dataPrc: '10/10/2022',
+    kmPrc: '20000',
+    tipoManutPrc: 'Preventiva',
+    oficinaPrc: 'Oficina A', // Nova propriedade para a oficina
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMaintenanceData({
-      ...maintenanceData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para salvar as alterações
+    // Aqui você pode adicionar a lógica para salvar as alterações na manutenção.
     setIsEditing(false); // Finaliza o modo de edição
   };
 
   return (
     <>
-      <Header title="Manutenções" />
-      <main className={styles.main}>
-        <MenuLateral /> {/* Menu lateral */}
-        <section className={styles.container}>
-        <div className={styles.dataContainer}>
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.lastMaintenanceInfo}>
-              <h3>Última manutenção</h3>
-              <p>Item:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="lastMaintenanceItem"
-                    name="lastMaintenanceItem"
-                    value={maintenanceData.lastMaintenanceItem}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.lastMaintenanceItem
-                )}
-              </span>
-              <p>Data:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="lastMaintenanceDate"
-                    name="lastMaintenanceDate"
-                    value={maintenanceData.lastMaintenanceDate}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.lastMaintenanceDate
-                )}
-              </span>
-              <p>Quilometragem:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="lastMaintenanceKm"
-                    name="lastMaintenanceKm"
-                    value={maintenanceData.lastMaintenanceKm}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.lastMaintenanceKm
-                )}
-              </span>
-              <p>Tipo:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="lastMaintenanceType"
-                    name="lastMaintenanceType"
-                    value={maintenanceData.lastMaintenanceType}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.lastMaintenanceType
-                )}
-              </span>
-            </div>
+      <Header title="Manutenção" />
+      <div className={styles.container}>
+        <MenuLateral />
+        <Form onSubmit={handleSubmit}>
+          <div className={styles.content}>
+            <div className={styles.dataContainer}>
+              <div className={styles.inputGroup}>
+                <h2>Última Manutenção</h2>
+                <p>Item:</p>
+                <span className={styles.inputField}>
+                  {userData.itemUlt}
+                </span>
+                <p>Data:</p>
+                <span className={styles.inputField}>
+                  {userData.dataUlt}
+                </span>
+                <p>KM:</p>
+                <span className={styles.inputField}>
+                  {userData.kmUlt}
+                </span>
+                <p>Tipo:</p>
+                <span className={styles.inputField}>
+                  {userData.tipoManutUlt}
+                </span>
+                <p>Oficina:</p>
+                <span className={styles.inputField}>
+                  {userData.oficinaUlt}
+                </span>
+              </div>
 
-            <div className={styles.nextMaintenanceInfo}>
-              <h3>Próxima manutenção</h3>
-              <p>Item:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="nextMaintenanceItem"
-                    name="nextMaintenanceItem"
-                    value={maintenanceData.nextMaintenanceItem}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.nextMaintenanceItem
-                )}
-              </span>
-              <p>Data:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="nextMaintenanceDate"
-                    name="nextMaintenanceDate"
-                    value={maintenanceData.nextMaintenanceDate}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.nextMaintenanceDate
-                )}
-              </span>
-              <p>Quilometragem:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="nextMaintenanceKm"
-                    name="nextMaintenanceKm"
-                    value={maintenanceData.nextMaintenanceKm}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.nextMaintenanceKm
-                )}
-              </span>
-              <p>Tipo:</p>
-              <span className={styles.inputField}>
-                {isEditing ? (
-                  <Input
-                    id="nextMaintenanceType"
-                    name="nextMaintenanceType"
-                    value={maintenanceData.nextMaintenanceType}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  maintenanceData.nextMaintenanceType
-                )}
-              </span>
+              <div className={styles.inputGroup}>
+                <h2>Próxima Manutenção</h2>
+                <p>Item:</p>
+                <span className={styles.inputField}>
+                  {isEditing ? (
+                    <select
+                      name="itemPrc"
+                      value={userData.itemPrc}
+                      onChange={handleChange}
+                    >
+                      <option value="Óleo do Motor">Óleo do Motor</option>
+                      <option value="Filtro de Ar">Filtro de Ar</option>
+                      <option value="Pastilha de Freio">Pastilha de Freio</option>
+                    </select>
+                  ) : (
+                    userData.itemPrc
+                  )}
+                </span>
+                <p>Data:</p>
+                <span className={styles.inputField}>
+                  {isEditing ? (
+                    <select
+                      name="dataPrc"
+                      value={userData.dataPrc}
+                      onChange={handleChange}
+                    >
+                      <option value="10/10/2022">10/10/2022</option>
+                      <option value="15/11/2022">15/11/2022</option>
+                      <option value="20/12/2022">20/12/2022</option>
+                    </select>
+                  ) : (
+                    userData.dataPrc
+                  )}
+                </span>
+                <p>KM:</p>
+                <span className={styles.inputField}>
+                  {isEditing ? (
+                    <input
+                      name="kmPrc"
+                      value={userData.kmPrc}
+                      onChange={handleChange}
+                    />
+                  ) : (
+                    userData.kmPrc
+                  )}
+                </span>
+                <p>Tipo:</p>
+                <span className={styles.inputField}>
+                  {isEditing ? (
+                    <select
+                      name="tipoManutPrc"
+                      value={userData.tipoManutPrc}
+                      onChange={handleChange}
+                    >
+                      <option value="Preventiva">Preventiva</option>
+                      <option value="Corretiva">Corretiva</option>
+                    </select>
+                  ) : (
+                    userData.tipoManutPrc
+                  )}
+                </span>
+                <p>Oficina:</p>
+                <span className={styles.inputField}>
+                  {isEditing ? (
+                    <select
+                      name="oficinaPrc"
+                      value={userData.oficinaPrc}
+                      onChange={handleChange}
+                    >
+                      <option value="Oficina A">Oficina A</option>
+                      <option value="Oficina B">Oficina B</option>
+                      <option value="Oficina C">Oficina C</option>
+                    </select>
+                  ) : (
+                    userData.oficinaPrc
+                  )}
+                </span>
+              </div>
             </div>
-
             <div className={styles.buttonGroup}>
               <Button type="button" onClick={() => setIsEditing(!isEditing)}>
-                {isEditing ? 'Salvar' : 'Editar'}
+                {isEditing ? 'Salvar' : 'Selecionar Próxima Manutenção'}
               </Button>
-              {isEditing && <Button type="submit">Confirmar</Button>}
             </div>
-          </form>
           </div>
-        </section>
-      </main>
+        </Form>
+      </div>
       <Footer />
     </>
   );
