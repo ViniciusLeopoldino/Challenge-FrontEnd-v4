@@ -8,10 +8,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const response = await fetch('https://api-inference.huggingface.co/models/neuralmind/bert-base-portuguese-cased', {
+    const response = await fetch('https://api-inference.huggingface.co/models/gpt2', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
+        'Authorization': `Bearer ${process.env.HUGGING_FACE_API_KEY}`,  // Certifique-se de que está configurado corretamente
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ inputs: message })
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await response.json();
 
     if (data.error) {
-      throw new Error(data.error);
+      return res.status(500).json({ error: data.error.message || 'Erro ao obter resposta.' });
     }
 
     const reply = data[0]?.generated_text || 'Desculpe, não consegui processar sua solicitação.';
@@ -30,6 +30,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({ error: 'Erro interno ao chamar a API Hugging Face' });
   }
 }
-
-
-
