@@ -1,34 +1,3 @@
-// import React from 'react';
-// import Header from '../components/Header/Header';
-// import Footer from '../components/Footer/Footer';
-// import Button from '../components/Button/Button';
-// import styles from '../styles/pages/PortoAutoCheck.module.css';
-
-// const PortoAutoCheck: React.FC = () => {
-//   return (
-//     <>
-//       <Header title="Porto Auto Check" />
-//       <div className={styles.container}>
-//       <main className={styles.main}>
-//         <section className={styles.section}>
-//           <h2>Autoatendimento</h2>
-//           <div className={styles.buttons}>
-//             <Button>Iniciar Autodiagnóstico</Button>
-//             <br />
-//             <Button>Iniciar Auto-Orçamento</Button>
-//           </div>
-//         </section>
-//       </main>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// };
-
-
-// export default PortoAutoCheck;
-
-
 import React, { useState } from 'react';
 import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
@@ -58,21 +27,21 @@ const PortoAutoCheck: React.FC = () => {
     <>
       <Header title="Porto Auto Check" />
       <div className={styles.container}>
-      <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
-      <Form onSubmit={(event) => { event.preventDefault(); /* handle form submission */ }}>
-        <main className={styles.main}>
-          <section className={styles.section}>
-            <h2>Autoatendimento</h2>
-            <div className={styles.buttons}>
-              <Button onClick={() => setShowDiagnosticChat(true)}>Iniciar Autodiagnóstico</Button>
-              <br />
-              <Button onClick={() => setShowEstimateChat(true)}>Iniciar Auto-Orçamento</Button>
-            </div>
-          </section>
-        </main>
-      </Form>
+        <MenuLateral />
+        <Form onSubmit={(event) => { event.preventDefault(); /* handle form submission */ }}>
+          <main className={styles.main}>
+            <section className={styles.section}>
+              <h2>Autoatendimento</h2>
+              <div className={styles.buttons}>
+                <Button onClick={() => setShowDiagnosticChat(true)}>Iniciar Autodiagnóstico</Button>
+                <br />
+                <Button onClick={() => setShowEstimateChat(true)}>Iniciar Auto-Orçamento</Button>
+              </div>
+            </section>
+          </main>
+        </Form>
       </div>
-      
+
       {/* Chatbot para Autodiagnóstico */}
       {showDiagnosticChat && (
         <Chatbot 
