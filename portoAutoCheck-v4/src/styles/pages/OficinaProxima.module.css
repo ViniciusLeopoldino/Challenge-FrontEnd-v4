@@ -12,6 +12,30 @@
     box-sizing: border-box; 
   }
   
+  .officeContainer {
+    max-height: 200px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto; /* Ativar a rolagem vertical */
+    border: 1px solid #ccc; /* Borda opcional para o contêiner */
+    margin: 10px 0; /* Margem para espaçamento */
+    padding: 10px; /* Padding para deixar o conteúdo mais espaçado */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #f9f9f9; /* Cor de fundo opcional */
+  }
+  
+  .officeList {
+    list-style: none; /* Remover marcadores da lista */
+    padding: 0; /* Remover padding padrão */
+    margin: 0; /* Remover margin padrão */
+  }
+  
+  .officeList li {
+    margin: 5px 0; /* Espaçamento entre os itens da lista */
+    display: flex; /* Flex para alinhar o checkbox e o texto */
+    align-items: center; /* Alinhar verticalmente */
+  }
+  
+  
+
   @media (max-width: 768px) {
     .container {
       margin-left: 0;
