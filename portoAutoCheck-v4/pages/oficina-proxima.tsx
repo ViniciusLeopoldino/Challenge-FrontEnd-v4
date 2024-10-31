@@ -48,7 +48,7 @@ const OficinaProxima: React.FC = () => {
   };
 
   const fetchOffices = async (lat: number, lng: number) => {
-    const response = await fetch(`/api/oficinas?lat=${lat}&lng=${lng}&radius=5000`);
+    const response = await fetch(`/api/oficinas?lat=${lat}&lng=${lng}&radius=5000`); // raio de 5km
 
     if (!response.ok) {
       throw new Error('Falha ao buscar as oficinas');
