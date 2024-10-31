@@ -15,7 +15,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px; /* Ajuste conforme necessário */
+  width: 250px; 
   height: 100vh; /* Altura total da tela */
   background-color: #00a1fc;
   color: #fff;
@@ -26,6 +26,12 @@
   z-index: 1000;
 }
 
+.logo {
+  justify-content: center; 
+  display: flex;
+  margin-bottom: 50px;
+
+}
 
 .menuLateral.open {
   transform: translateX(0); /* Quando o menu está aberto */
@@ -75,7 +81,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .menuLateral {
-    width: 250px;
+    width: 100%; /* Menu ocupa toda a largura da tela */
     transform: translateX(-100%); /* Esconde o menu inicialmente */
   }
 
@@ -84,6 +90,7 @@
   }
 
   .hamburger {
+    /* margin-top: 30px; */
     display: block; /* Exibe o ícone do menu hambúrguer */
   }
 }
