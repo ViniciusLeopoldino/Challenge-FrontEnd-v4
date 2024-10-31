@@ -48,7 +48,7 @@ const OficinaProxima: React.FC = () => {
   };
 
   const fetchOffices = async (lat: number, lng: number) => {
-    const response = await fetch(`/api/oficinas?lat=${lat}&lng=${lng}&radius=100000`);
+    const response = await fetch(`/api/oficinas?lat=${lat}&lng=${lng}&radius=5000`);
 
     if (!response.ok) {
       throw new Error('Falha ao buscar as oficinas');
@@ -141,7 +141,7 @@ const OficinaProxima: React.FC = () => {
           <GoogleMap
             mapContainerStyle={{ width: '100%', height: '300px' }} // Alterado para 100% de largura
             center={{ lat: location.lat, lng: location.lng }}
-            zoom={12}
+            zoom={10} 
           >
             {offices.length > 0 ? (
               offices.map((office, index) => (

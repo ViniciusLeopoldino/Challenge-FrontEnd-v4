@@ -9,8 +9,6 @@
 
 @media (max-width: 768px) {
   .footer {
-    margin-left: 0;
-    width: 100%;
-    min-height: auto;
+  left: 42%;
   }
 }

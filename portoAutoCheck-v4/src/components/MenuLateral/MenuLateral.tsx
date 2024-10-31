@@ -15,7 +15,7 @@ const MenuLateral: React.FC = () => {
     <>
       <nav className={`${styles.menuLateral} ${isMenuOpen ? styles.open : ''}`}>
         <div className={styles.logo}>
-          <Image src={logo} alt="Logo" />
+        <Link href="/perfil"><Image src={logo} alt="Logo" /></Link>
         </div>
         <ul className={styles.menuItems}>
           <li><Link href="/perfil">Perfil</Link></li> 
