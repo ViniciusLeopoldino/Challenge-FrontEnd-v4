@@ -92,6 +92,11 @@
   .hamburger {
     /* margin-top: 30px; */
     display: block; /* Exibe o ícone do menu hambúrguer */
-  }
-}
+    }
 
+    .menuLateral.open .menuItems {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
