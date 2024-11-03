@@ -70,8 +70,8 @@ const Login: React.FC = () => {
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
 
-            <Link href="/registro">
-              <Button type="button">Registrar</Button>
+            <Link href="/cadastro">
+              <Button type="button">Cadastrar</Button>
             </Link>
             <br />
             <Link href="/reset-senha">

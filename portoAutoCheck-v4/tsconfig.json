@@ -22,7 +22,7 @@
     "next-env.d.ts",                     // Definições de tipos específicas do Next.js
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/cadastro.tsx"  ],
+, "pages/api/cadastro.ts"  ],
   "exclude": [
     "node_modules"                       // Diretórios a serem excluídos da compilação
   ]
