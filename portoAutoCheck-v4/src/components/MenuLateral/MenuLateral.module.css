@@ -1,22 +1,9 @@
 .menuLateral {
-  /* position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #00a1fc;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 1000; */
-
   position: fixed;
   top: 0;
   left: 0;
   width: 250px; 
-  height: 100vh; /* Altura total da tela */
+  height: 100vh; 
   background-color: #00a1fc;
   color: #fff;
   display: flex;
@@ -34,7 +21,7 @@
 }
 
 .menuLateral.open {
-  transform: translateX(0); /* Quando o menu está aberto */
+  transform: translateX(0); 
 }
 
 .menuItems {
@@ -58,9 +45,8 @@
   color: #000000;
 }
 
-/* Estilo do ícone do menu hambúrguer */
 .hamburger {
-  display: none; /* Escondido por padrão */
+  display: none; 
   position: fixed;
   top: 20px;
   left: 20px;
@@ -78,20 +64,18 @@
   border: 1px solid #00a1fc;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .menuLateral {
-    width: 100%; /* Menu ocupa toda a largura da tela */
-    transform: translateX(-100%); /* Esconde o menu inicialmente */
+    width: 100%; 
+    transform: translateX(-100%); 
   }
 
   .menuLateral.open {
-    transform: translateX(0); /* Exibe o menu no clique */
+    transform: translateX(0); 
   }
 
   .hamburger {
-    /* margin-top: 30px; */
-    display: block; /* Exibe o ícone do menu hambúrguer */
+    display: block;
     }
 
     .menuLateral.open .menuItems {

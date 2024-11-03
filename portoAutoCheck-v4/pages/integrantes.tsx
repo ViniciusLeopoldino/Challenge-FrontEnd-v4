@@ -8,7 +8,6 @@ import image2 from '../src/assets/Pablo.jpeg';
 import image3 from '../src/assets/Vinicius.jpg';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
-// Definindo os dados dos integrantes
 const integrantesData = [
   {
     name: 'Diego Santos',

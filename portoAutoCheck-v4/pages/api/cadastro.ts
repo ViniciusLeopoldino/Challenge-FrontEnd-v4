@@ -5,12 +5,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'POST') {
         const { email, senha, confsenha, nome, cpf, telefone, cep, modelo, ano, placa, cor } = req.body;
 
-        // Verifique se todos os campos obrigatórios estão presentes
         if (!email || !senha || !nome) {
             return res.status(400).json({ error: 'Email, senha e nome são obrigatórios.' });
         }
 
-        // Verifique se a senha e a confirmação da senha coincidem
         if (senha !== confsenha) {
             return res.status(400).json({ error: 'A senha e a confirmação da senha não coincidem.' });
         }

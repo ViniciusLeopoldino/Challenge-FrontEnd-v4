@@ -21,7 +21,6 @@ const resetSenha = async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(404).json({ message: 'E-mail não encontrado.' });
       }
 
-      // Atualiza ambas as colunas 'senha' e 'confsenha'
       await connection.execute(
         'UPDATE cadastro SET senha = :senha, confsenha = :confsenha WHERE email = :email', 
         { senha: newPassword, confsenha: newPassword, email }

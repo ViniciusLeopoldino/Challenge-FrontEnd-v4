@@ -12,8 +12,8 @@ const OficinaProxima: React.FC = () => {
   const [offices, setOffices] = useState<any[]>([]);
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false); // Estado para controlar o carregamento
-  const [selectedOffices, setSelectedOffices] = useState<number[]>([]); // Estado para armazenar oficinas selecionadas
+  const [loading, setLoading] = useState(false); 
+  const [selectedOffices, setSelectedOffices] = useState<number[]>([]); 
 
   const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCep(e.target.value);
@@ -57,7 +57,7 @@ const OficinaProxima: React.FC = () => {
     const data = await response.json();
     if (data.offices) {
       setOffices(data.offices);
-      setSelectedOffices([]); // Resetar a seleção de oficinas quando novas oficinas são buscadas
+      setSelectedOffices([]); 
     } else {
       setOffices([]);
       setError('Nenhuma oficina encontrada.');
@@ -66,8 +66,8 @@ const OficinaProxima: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null); // Limpar mensagens de erro
-    setLoading(true); // Começar a carregar
+    setError(null); 
+    setLoading(true); 
 
     try {
       const coordinates = await fetchCoordinates(cep);
@@ -76,17 +76,17 @@ const OficinaProxima: React.FC = () => {
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Ocorreu um erro');
     } finally {
-      setLoading(false); // Finalizar carregamento
+      setLoading(false); 
     }
   };
 
   const handleCheckboxChange = (index: number) => {
     setSelectedOffices(prevSelected => {
       if (prevSelected.includes(index)) {
-        // Se já estiver selecionado, remover da seleção
+        
         return prevSelected.filter(i => i !== index);
       } else {
-        // Caso contrário, adicionar à seleção
+        
         return [...prevSelected, index];
       }
     });
@@ -94,7 +94,7 @@ const OficinaProxima: React.FC = () => {
 
   const handleLoadGPS = () => {
     if (selectedOffices.length > 0) {
-      const office = offices[selectedOffices[0]]; // Pegar a primeira oficina selecionada
+      const office = offices[selectedOffices[0]]; 
       const { lat, lng } = office.geometry.location;
       // Redirecionar para o Google Maps
       window.open(`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, '_blank');
@@ -114,10 +114,10 @@ const OficinaProxima: React.FC = () => {
           <Button type="submit" disabled={loading}>Pesquisar</Button>
         </form>
 
-        {/* Exibir mensagens de erro, se houver */}
+        
         {error && <p className={styles.error}>{error}</p>}
 
-        {/* Exibir lista de oficinas com checkboxes dentro de um contêiner com barra de rolagem */}
+        
         {offices.length > 0 && (
           <div className={styles.officeContainer}>
             <ul className={styles.officeList}>
@@ -135,11 +135,11 @@ const OficinaProxima: React.FC = () => {
           </div>
         )}
 
-        {/* Carregando o mapa apenas se a localização estiver disponível */}
+        
         {location && (
           <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
           <GoogleMap
-            mapContainerStyle={{ width: '100%', height: '300px' }} // Alterado para 100% de largura
+            mapContainerStyle={{ width: '100%', height: '300px' }} 
             center={{ lat: location.lat, lng: location.lng }}
             zoom={10} 
           >

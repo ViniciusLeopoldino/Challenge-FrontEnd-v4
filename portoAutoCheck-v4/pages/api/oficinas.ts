@@ -17,7 +17,6 @@ interface ResponseData {
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData | { error: string }>) {
   const { lat, lng, radius } = req.query;
 
-  // Coloque sua chave da API aqui
   const NEXT_PUBLIC_GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   if (!lat || !lng || !radius) {
@@ -29,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const data = await response.json();
 
     if (data.results) {
-      // Filtrar oficinas pelo nome
+      // Filtrando oficinas pelo nome "oficina" no resultado da API do Google Maps
       const offices: Office[] = data.results.filter((place: any) => place.name.toLowerCase().includes('oficina'));
       res.status(200).json({ offices });
     } else {

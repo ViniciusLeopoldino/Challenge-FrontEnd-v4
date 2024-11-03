@@ -1,4 +1,3 @@
-/* src/styles/components/Button.module.css */
 .button {
     padding: 10px 30px;
     background-color: #00a1fc;
@@ -11,5 +10,5 @@
   }
   
   .button:hover {
-    background-color: #005bb5; /* Cor de fundo ao passar o mouse */
+    background-color: #005bb5; 
   }

@@ -6,10 +6,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.555);
     width: 100%;
     max-width: 500px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
     margin: auto; 
     margin-top: calc(40vh - 200px);
     color: #00a1fc;
@@ -39,7 +35,6 @@
     margin-top: 0px;
   }
 
-  /* Media Query para dispositivos móveis */
   @media only screen and (max-width: 768px) {
     .container {
       width: 80%;

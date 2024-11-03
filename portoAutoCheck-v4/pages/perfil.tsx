@@ -3,7 +3,6 @@ import Header from '../src/components/Header/Header';
 import Button from '../src/components/Button/Button';
 import Footer from '../src/components/Footer/Footer';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
-// import styles from '../src/styles/pages/Perfil.module.css';
 import Form from '../src/components/Form/Form';
 import styles from '../src/styles/pages/SharedForm.module.css';
 
@@ -26,8 +25,7 @@ const Perfil: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para salvar as alterações no perfil.
-    setIsEditing(false); // Finaliza o modo de edição
+    setIsEditing(false); 
   };
 
   return (

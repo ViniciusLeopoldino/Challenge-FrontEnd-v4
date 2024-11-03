@@ -1,46 +1,44 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: black;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-left: 200px; /*Espaço reservado para o menu lateral*/
-    width: calc(100% - 200px); /*O container ocupa o restante da tela*/
-    min-height: 50%; /* Garante que o container ocupe toda a altura da tela */
-    box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-left: 200px; 
+  width: calc(100% - 200px); 
+  min-height: 50%; 
+  box-sizing: border-box; 
   }
   
   .officeContainer {
-    max-height: 200px; /* Ajuste a altura conforme necessário */
-    overflow-y: auto; /* Ativar a rolagem vertical */
-    border: 1px solid #ccc; /* Borda opcional para o contêiner */
-    margin: 10px 0; /* Margem para espaçamento */
-    padding: 10px; /* Padding para deixar o conteúdo mais espaçado */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #f9f9f9; /* Cor de fundo opcional */
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px; 
+  background-color: #f9f9f9; 
   }
   
   .officeList {
-    list-style: none; /* Remover marcadores da lista */
-    padding: 0; /* Remover padding padrão */
-    margin: 0; /* Remover margin padrão */
+  list-style: none;
+  padding: 0;
+  margin: 0;
   }
   
   .officeList li {
-    margin: 5px 0; /* Espaçamento entre os itens da lista */
-    display: flex; /* Flex para alinhar o checkbox e o texto */
-    align-items: center; /* Alinhar verticalmente */
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
   }
   
-  
-
   @media (max-width: 768px) {
-    .container {
-      margin-left: 0;
-      width: 100%; /* Ocupa 100% da largura em telas menores */
-      min-height: auto; /* Ajusta a altura automaticamente para telas menores */
-    }
+  .container {
+    margin-left: 0;
+    width: 100%;
+    min-height: auto;
+  }
   }
 

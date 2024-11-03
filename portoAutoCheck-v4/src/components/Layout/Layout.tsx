@@ -1,4 +1,3 @@
-// src/components/Layout/Layout.tsx
 import React from 'react';
 import MenuLateral from '../MenuLateral/MenuLateral'; 
 import styles from './Layout.module.css'; 

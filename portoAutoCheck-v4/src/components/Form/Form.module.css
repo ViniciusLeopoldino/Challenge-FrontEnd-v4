@@ -1,9 +1,7 @@
-/* src/components/Form/Form.module.css */
-
 .container {
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; 
+  align-items: center; 
 
 }
 
@@ -14,6 +12,5 @@
   max-width: 400px;
   padding: 20px;
   border-radius: 20px;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 

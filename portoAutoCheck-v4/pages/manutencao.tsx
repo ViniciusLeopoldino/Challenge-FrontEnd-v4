@@ -20,7 +20,7 @@ const Manutencao: React.FC = () => {
     dataPrc: '10/10/2022',
     kmPrc: '20000',
     tipoManutPrc: 'Preventiva',
-    oficinaPrc: 'Oficina A', // Nova propriedade para a oficina
+    oficinaPrc: 'Oficina A', 
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -29,8 +29,8 @@ const Manutencao: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para salvar as alterações na manutenção.
-    setIsEditing(false); // Finaliza o modo de edição
+    
+    setIsEditing(false); 
   };
 
   return (

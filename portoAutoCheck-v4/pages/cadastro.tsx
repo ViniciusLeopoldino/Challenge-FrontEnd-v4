@@ -9,7 +9,6 @@ import styles from '../src/styles/pages/InitialStyles.module.css';
 const Cadastro: React.FC = () => {
   const router = useRouter();
 
-  // Estados para armazenar os valores dos inputs
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confsenha, setConfsenha] = useState('');
@@ -28,7 +27,6 @@ const Cadastro: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Validação simples dos campos
     if (!email || !senha || !confsenha || !nome || !cpf || !telefone || !cep || !modelo || !ano || !placa || !cor) {
       setErrorMessage('Todos os campos são obrigatórios.');
       return;
@@ -39,18 +37,16 @@ const Cadastro: React.FC = () => {
       return;
     }
 
-    // Converte o ano para número
     const anoNumber = Number(ano);
     if (isNaN(anoNumber) || anoNumber <= 0) {
       setErrorMessage('Ano inválido.');
       return;
     }
 
-    setLoading(true); // Inicia o estado de carregamento
-    setErrorMessage(''); // Limpa mensagens anteriores
-    setSuccessMessage(''); // Limpa mensagens de sucesso anteriores
+    setLoading(true); 
+    setErrorMessage(''); 
+    setSuccessMessage(''); 
 
-    // Faz a requisição para a API usando Ax
     try {
       const response = await axios.post('/api/cadastro', {
         email,
@@ -76,7 +72,7 @@ const Cadastro: React.FC = () => {
       console.error('Erro ao cadastrar:', error);
       setErrorMessage('Falha na comunicação com o servidor. Tente novamente mais tarde.');
     } finally {
-      setLoading(false); // Finaliza o estado de carregamento
+      setLoading(false); 
     }
   };
 

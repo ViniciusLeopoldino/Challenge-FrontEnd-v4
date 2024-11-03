@@ -1,4 +1,4 @@
-/* unitizando perfil e manutencao */
+/* unitizando para menu perfil e manutencao */
 
 .container {
     display: flex;
@@ -13,11 +13,10 @@
   
   .buttonGroup {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    margin-top: 20px; /* Ajuste o espaçamento conforme necessário */
+    justify-content: center; 
+    margin-top: 20px; 
   }
   
-
   @media (max-width: 768px) {
     .container {
       margin-left: 0;

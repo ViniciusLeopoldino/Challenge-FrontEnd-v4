@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Link from 'next/link'; // Importando o Link do Next.js
+import Link from 'next/link'; 
 import styles from '../MenuLateral/MenuLateral.module.css'; 
-import logo from '../img/Logo_PortoSeguro_menu.svg'; 
+import logo from '../../assets/Logo_PortoSeguro_menu.svg'; 
 import Image from 'next/image';
 
 const MenuLateral: React.FC = () => {

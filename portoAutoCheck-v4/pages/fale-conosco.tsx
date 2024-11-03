@@ -6,23 +6,20 @@ import Header from '../src/components/Header/Header';
 import styles from '../src/styles/pages/FaleConosco.module.css';
 import MenuLateral from '../src/components/MenuLateral/MenuLateral';
 
-// const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-//   event.preventDefault();
-//   alert('Mensagem enviada!');
-// }
-
 const FaleConosco: React.FC = () => {
   return (
     <>
     <Header title="Fale Conosco" />
     <div className={styles.container}>
-    <MenuLateral /> {/* Adicionando o Menu Lateral aqui */}
+    <MenuLateral /> 
       <div>
         <Input type="text" id="nome" name="nome" placeholder="Nome" />
         <br />
         <Input type="email" id="email" name="email" placeholder="E-mail" />
         <textarea id="mensagem" name="mensagem" placeholder="Deixe sua mensagem" />
+        <form onSubmit={() => alert('Mensagem enviada com sucesso!')}>
         <Button type="submit">Enviar</Button>
+        </form>
       </div>
     </div>
     <Footer />

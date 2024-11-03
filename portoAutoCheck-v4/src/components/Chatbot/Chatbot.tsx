@@ -31,7 +31,6 @@ const Chatbot: React.FC<ChatbotProps> = ({ title, questions, onClose }) => {
     }
   };
 
-  // Função para chamar a API do Hugging Face com retry
   const fetchHuggingFaceResponse = async (message: string, retries: number = 5): Promise<string> => {
     for (let i = 0; i < retries; i++) {
       const response = await fetch('/api/huggingface', {
@@ -47,7 +46,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ title, questions, onClose }) => {
       } else {
         console.error("Erro da API Hugging Face:", data.error);
         if (data.error && data.error.includes("currently loading")) {
-          // Aguarde um segundo antes de tentar novamente
+          
           await new Promise(res => setTimeout(res, 1000));
         } else {
           throw new Error("Erro ao obter resposta.");
