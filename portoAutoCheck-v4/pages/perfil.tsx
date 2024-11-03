@@ -10,11 +10,11 @@ const Perfil: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState<any>({});
   const [error, setError] = useState('');
-  //CORRETO NESSE 
+
   useEffect(() => {
     const fetchData = async () => {
       const email = localStorage.getItem('userEmail');
-  
+
       if (email) {
         try {
           const response = await fetch(`/api/perfil?email=${encodeURIComponent(email)}`);
@@ -22,8 +22,7 @@ const Perfil: React.FC = () => {
             throw new Error('Usuário não encontrado');
           }
           const data = await response.json();
-  
-          // Transformar o array em um objeto
+
           const userObject = {
             id: data[0], // ID_CADASTRO
             email: data[1],
@@ -39,8 +38,8 @@ const Perfil: React.FC = () => {
             placa: data[11],
             cor: data[12],
           };
-  
-          setUserData(userObject); // Armazena o objeto no estado
+
+          setUserData(userObject);
         } catch (err) {
           if (err instanceof Error) {
             setError(err.message);
@@ -52,10 +51,9 @@ const Perfil: React.FC = () => {
         setError('Usuário não logado');
       }
     };
-  
+
     fetchData();
   }, []);
-  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
@@ -63,11 +61,9 @@ const Perfil: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsEditing(false);
 
-    // Lógica para atualizar os dados no banco, se necessário
     try {
-      const response = await fetch('/api/updateUser', {
+      const response = await fetch('/api/attperfil', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,10 +75,16 @@ const Perfil: React.FC = () => {
         throw new Error('Erro ao atualizar dados');
       }
 
-      const updatedData = await response.json();
-      setUserData(updatedData); // Atualiza o estado com os dados atualizados
-    } catch (err) {
-      setError('Erro ao atualizar dados');
+      const result = await response.json();
+      alert(result.message);
+      setIsEditing(false);
+    } catch (error) {
+      console.error(error);
+      if (error instanceof Error) {
+        alert('Erro ao atualizar dados: ' + error.message);
+      } else {
+        alert('Erro ao atualizar dados');
+      }
     }
   };
 
@@ -175,16 +177,21 @@ const Perfil: React.FC = () => {
             </div>
             <div className={styles.buttonGroup}>
               <Button type="button" onClick={() => setIsEditing(!isEditing)}>
-                {isEditing ? 'Salvar' : 'Editar'}
+                {isEditing ? 'Cancelar' : 'Editar'}
               </Button>
+              {isEditing && (
+                <Button type="submit">
+                  Salvar
+                </Button>
+              )}
             </div>
+
           </div>
         </Form>
       </div>
       <Footer />
     </>
   );
-  
 };
 
 export default Perfil;
