@@ -25,6 +25,9 @@ const Login: React.FC = () => {
       const response = await axios.post('/api/login', { email, password });
 
       if (response.status === 200) {
+
+        localStorage.setItem('userEmail', email);
+
         router.push('/perfil');
       } else {
         setErrorMessage('E-mail ou senha inválidos. Tente novamente.');

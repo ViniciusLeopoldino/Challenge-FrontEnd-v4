@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../src/components/Header/Header';
 import Button from '../src/components/Button/Button';
 import Footer from '../src/components/Footer/Footer';
@@ -8,25 +8,91 @@ import styles from '../src/styles/pages/SharedForm.module.css';
 
 const Perfil: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [userData, setUserData] = useState({
-    nome: 'João da Silva',
-    cpf: '132.123.321-10',
-    telefone: '(11) 9 7876-2300',
-    cep: '03044-051',
-    modelo: 'Fiat Fastback',
-    ano: '2024',
-    placa: 'ABC1D23',
-    cor: 'Vermelho',
-  });
+  const [userData, setUserData] = useState<any>({});
+  const [error, setError] = useState('');
+  //CORRETO NESSE 
+  useEffect(() => {
+    const fetchData = async () => {
+      const email = localStorage.getItem('userEmail');
+  
+      if (email) {
+        try {
+          const response = await fetch(`/api/perfil?email=${encodeURIComponent(email)}`);
+          if (!response.ok) {
+            throw new Error('Usuário não encontrado');
+          }
+          const data = await response.json();
+  
+          // Transformar o array em um objeto
+          const userObject = {
+            id: data[0], // ID_CADASTRO
+            email: data[1],
+            dataCadastro: data[2],
+            senha: data[3],
+            confSenha: data[4],
+            nome: data[5],
+            cpf: data[6],
+            telefone: data[7],
+            cep: data[8],
+            modelo: data[9],
+            ano: data[10],
+            placa: data[11],
+            cor: data[12],
+          };
+  
+          setUserData(userObject); // Armazena o objeto no estado
+        } catch (err) {
+          if (err instanceof Error) {
+            setError(err.message);
+          } else {
+            setError('An unknown error occurred');
+          }
+        }
+      } else {
+        setError('Usuário não logado');
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsEditing(false); 
+    setIsEditing(false);
+
+    // Lógica para atualizar os dados no banco, se necessário
+    try {
+      const response = await fetch('/api/updateUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao atualizar dados');
+      }
+
+      const updatedData = await response.json();
+      setUserData(updatedData); // Atualiza o estado com os dados atualizados
+    } catch (err) {
+      setError('Erro ao atualizar dados');
+    }
   };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!userData || Object.keys(userData).length === 0) {
+    return <div>Carregando...</div>;
+  }
 
   return (
     <>
@@ -108,9 +174,9 @@ const Perfil: React.FC = () => {
               </div>
             </div>
             <div className={styles.buttonGroup}>
-            <Button type="button" onClick={() => setIsEditing(!isEditing)}>
-              {isEditing ? 'Salvar' : 'Editar'}
-            </Button>
+              <Button type="button" onClick={() => setIsEditing(!isEditing)}>
+                {isEditing ? 'Salvar' : 'Editar'}
+              </Button>
             </div>
           </div>
         </Form>
@@ -118,6 +184,7 @@ const Perfil: React.FC = () => {
       <Footer />
     </>
   );
+  
 };
 
 export default Perfil;
